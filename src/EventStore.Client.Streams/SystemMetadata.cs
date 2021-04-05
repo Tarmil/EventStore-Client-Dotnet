@@ -1,53 +1,4 @@
-#nullable enable
 namespace EventStore.Client {
-	/// <summary>
-	/// A collection of constants and methods to identify streams.
-	/// </summary>
-	public static class SystemStreams {
-		/// <summary>
-		/// A stream containing links pointing to each stream in the EventStoreDB.
-		/// </summary>
-		public const string StreamsStream = "$streams";
-
-		/// <summary>
-		/// A stream containing system settings.
-		/// </summary>
-		public const string SettingsStream = "$settings";
-
-		/// <summary>
-		/// A stream containing statistics.
-		/// </summary>
-		public const string StatsStreamPrefix = "$stats";
-
-		/// <summary>
-		/// Returns True if the stream is a system stream.
-		/// </summary>
-		/// <param name="streamId"></param>
-		/// <returns></returns>
-		public static bool IsSystemStream(string streamId) => streamId.Length != 0 && streamId[0] == '$';
-
-		/// <summary>
-		/// Returns the metadata stream of the stream.
-		/// </summary>
-		/// <param name="streamId"></param>
-		/// <returns></returns>
-		public static string MetastreamOf(string streamId) => "$$" + streamId;
-
-		/// <summary>
-		/// Returns true if the stream is a metadata stream.
-		/// </summary>
-		/// <param name="streamId"></param>
-		/// <returns></returns>
-		public static bool IsMetastream(string streamId) => streamId[..2] == "$$";
-
-		/// <summary>
-		/// Returns the original stream of the metadata stream.
-		/// </summary>
-		/// <param name="metastreamId"></param>
-		/// <returns></returns>
-		public static string OriginalStreamOf(string metastreamId) => metastreamId[2..];
-	}
-
 	///<summary>
 	///Constants for information in stream metadata
 	///</summary>
@@ -97,23 +48,23 @@ namespace EventStore.Client {
 		public const string AclDelete = "$d";
 
 		///<summary>
-		/// to read metadata 
+		/// to read metadata
 		///</summary>
 		public const string AclMetaRead = "$mr";
 
 		///<summary>
-		/// to write metadata 
+		/// to write metadata
 		///</summary>
 		public const string AclMetaWrite = "$mw";
 
 
 		///<summary>
-		/// The user default acl stream 
+		/// The user default acl stream
 		///</summary>
 		public const string UserStreamAcl = "$userStreamAcl";
 
 		///<summary>
-		/// the system stream defaults acl stream 
+		/// the system stream defaults acl stream
 		///</summary>
 		public const string SystemStreamAcl = "$systemStreamAcl";
 	}
