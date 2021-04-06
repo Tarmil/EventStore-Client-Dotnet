@@ -15,11 +15,5 @@ namespace EventStore.Client {
 			protected override Task Given() => Task.CompletedTask;
 			protected override Task When() => Task.CompletedTask;
 		}
-
-		[Fact]
-		public Task the_completion_fails_with_invalid_stream() =>
-			Assert.ThrowsAsync<InvalidOperationException>(() =>
-				_fixture.Client.CreateAsync("$all", "shitbird",
-					new PersistentSubscriptionSettings(), TestCredentials.Root));
 	}
 }
