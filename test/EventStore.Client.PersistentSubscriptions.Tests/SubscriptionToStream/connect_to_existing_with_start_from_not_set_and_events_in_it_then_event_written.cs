@@ -4,20 +4,20 @@ using Xunit;
 
 namespace EventStore.Client.SubscriptionToStream {
 	public class
-		connect_to_existing_with_start_from_beginning_not_set_and_events_in_it_then_event_written
+		connect_to_existing_with_start_from_not_set_and_events_in_it_then_event_written
 		: IClassFixture<
-			connect_to_existing_with_start_from_beginning_not_set_and_events_in_it_then_event_written
+			connect_to_existing_with_start_from_not_set_and_events_in_it_then_event_written
 			.Fixture> {
 		private readonly Fixture _fixture;
 		private const string Group = "startinbeginning1";
 
 		private const string Stream =
 			nameof(
-				connect_to_existing_with_start_from_beginning_not_set_and_events_in_it_then_event_written
+				connect_to_existing_with_start_from_not_set_and_events_in_it_then_event_written
 			);
 
 		public
-			connect_to_existing_with_start_from_beginning_not_set_and_events_in_it_then_event_written(
+			connect_to_existing_with_start_from_not_set_and_events_in_it_then_event_written(
 				Fixture fixture) {
 			_fixture = fixture;
 		}
@@ -43,7 +43,7 @@ namespace EventStore.Client.SubscriptionToStream {
 			protected override async Task Given() {
 				await StreamsClient.AppendToStreamAsync(Stream, StreamState.NoStream, Events.Take(10));
 				await Client.CreateAsync(Stream, Group,
-					new PersistentSubscriptionSettings(startFrom: StreamPosition.End), TestCredentials.Root);
+					new PersistentSubscriptionSettings(), TestCredentials.Root);
 				_subscription = await Client.SubscribeAsync(Stream, Group,
 					(subscription, e, r, ct) => {
 						_firstEventSource.TrySetResult(e);

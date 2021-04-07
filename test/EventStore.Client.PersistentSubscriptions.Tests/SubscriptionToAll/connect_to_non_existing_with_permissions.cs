@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client.SubscriptionToStream {
+namespace EventStore.Client.SubscriptionToAll {
 	public class connect_to_non_existing_with_permissions
 		: IClassFixture<connect_to_non_existing_with_permissions.Fixture> {
-		private const string Stream = nameof(connect_to_non_existing_with_permissions);
+		private const string Stream = SystemStreams.AllStream;
 		private const string Group = "foo";
 
 		private readonly Fixture _fixture;

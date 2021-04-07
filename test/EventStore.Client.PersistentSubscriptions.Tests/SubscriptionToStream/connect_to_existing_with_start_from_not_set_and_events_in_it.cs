@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 using Xunit;
 
 namespace EventStore.Client.SubscriptionToStream {
-	public class connect_to_existing_with_start_from_beginning_not_set_and_events_in_it
-		: IClassFixture<connect_to_existing_with_start_from_beginning_not_set_and_events_in_it.
+	public class connect_to_existing_with_start_from_not_set_and_events_in_it
+		: IClassFixture<connect_to_existing_with_start_from_not_set_and_events_in_it.
 			Fixture> {
 		private readonly Fixture _fixture;
 		private const string Group = "startinbeginning1";
 
 		private const string Stream =
-			nameof(connect_to_existing_with_start_from_beginning_not_set_and_events_in_it);
+			nameof(connect_to_existing_with_start_from_not_set_and_events_in_it);
 
-		public connect_to_existing_with_start_from_beginning_not_set_and_events_in_it(
+		public connect_to_existing_with_start_from_not_set_and_events_in_it(
 			Fixture fixture) {
 			_fixture = fixture;
 		}
@@ -37,7 +37,7 @@ namespace EventStore.Client.SubscriptionToStream {
 			protected override async Task Given() {
 				await StreamsClient.AppendToStreamAsync(Stream, StreamState.NoStream, Events);
 				await Client.CreateAsync(Stream, Group,
-					new PersistentSubscriptionSettings(startFrom: StreamPosition.End), TestCredentials.Root);
+					new PersistentSubscriptionSettings(), TestCredentials.Root);
 			}
 
 			protected override async Task When() {
