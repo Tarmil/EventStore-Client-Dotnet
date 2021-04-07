@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class create_on_existing_stream
 		: IClassFixture<create_on_existing_stream.Fixture> {
 		public create_on_existing_stream(Fixture fixture) {

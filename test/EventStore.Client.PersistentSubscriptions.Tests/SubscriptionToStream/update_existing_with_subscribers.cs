@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class update_existing_with_subscribers
 		: IClassFixture<update_existing_with_subscribers.Fixture> {
 		private const string Stream = nameof(update_existing_with_subscribers);

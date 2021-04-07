@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class connect_to_existing_with_start_from_beginning_and_events_in_it
 		: IClassFixture<connect_to_existing_with_start_from_beginning_and_events_in_it.Fixture
 		> {

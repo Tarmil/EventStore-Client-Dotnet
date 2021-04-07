@@ -2,7 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class
 		connecting_to_a_persistent_subscription
 		: IClassFixture<

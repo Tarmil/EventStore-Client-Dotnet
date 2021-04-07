@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class create_with_dont_timeout
 		: IClassFixture<create_with_dont_timeout.Fixture> {
 		public create_with_dont_timeout(Fixture fixture) {

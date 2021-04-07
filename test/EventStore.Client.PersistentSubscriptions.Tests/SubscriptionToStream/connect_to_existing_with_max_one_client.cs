@@ -1,8 +1,7 @@
-using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class connect_to_existing_with_max_one_client
 		: IClassFixture<connect_to_existing_with_max_one_client.Fixture> {
 		private const string Group = "startinbeginning1";

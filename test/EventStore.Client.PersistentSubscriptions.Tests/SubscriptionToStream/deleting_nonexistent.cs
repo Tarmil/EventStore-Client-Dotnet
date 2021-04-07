@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class deleting_nonexistent
 		: IClassFixture<deleting_nonexistent.Fixture> {
 		private readonly Fixture _fixture;

@@ -1,8 +1,7 @@
-using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class connect_to_existing_without_permissions
 		: IClassFixture<connect_to_existing_without_permissions.Fixture> {
 		private const string Stream = "$" + nameof(connect_to_existing_without_permissions);

@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class deleting_existing_with_subscriber
 		: IClassFixture<deleting_existing_with_subscriber.Fixture> {
 		private readonly Fixture _fixture;

@@ -2,7 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class connect_with_retries
 		: IClassFixture<connect_with_retries.Fixture> {
 		private readonly Fixture _fixture;

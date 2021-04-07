@@ -2,7 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class
 		connect_to_existing_with_start_from_x_set_higher_than_x_and_events_in_it_then_event_written
 		: IClassFixture<

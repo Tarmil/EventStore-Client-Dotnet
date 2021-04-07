@@ -1,8 +1,7 @@
-using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class connect_to_non_existing_with_permissions
 		: IClassFixture<connect_to_non_existing_with_permissions.Fixture> {
 		private readonly Fixture _fixture;

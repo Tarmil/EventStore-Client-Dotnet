@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class can_create_duplicate_name_on_different_streams
 		: IClassFixture<can_create_duplicate_name_on_different_streams.Fixture> {
 		public can_create_duplicate_name_on_different_streams(Fixture fixture) {

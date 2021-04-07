@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class update_existing_without_permissions
 		: IClassFixture<update_existing_without_permissions.Fixture> {
 		private const string Stream = nameof(update_existing_without_permissions);

@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class create_duplicate
 		: IClassFixture<create_duplicate.Fixture> {
 		public create_duplicate(Fixture fixture) {

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class create_after_deleting_the_same
 		: IClassFixture<create_after_deleting_the_same.Fixture> {
 		public create_after_deleting_the_same(Fixture fixture) {

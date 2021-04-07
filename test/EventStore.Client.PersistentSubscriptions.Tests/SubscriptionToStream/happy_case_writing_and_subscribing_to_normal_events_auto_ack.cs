@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class happy_case_writing_and_subscribing_to_normal_events_auto_ack
 		: IClassFixture<happy_case_writing_and_subscribing_to_normal_events_auto_ack.Fixture> {
 		private const string Stream = nameof(happy_case_writing_and_subscribing_to_normal_events_auto_ack);

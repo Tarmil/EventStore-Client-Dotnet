@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class deleting_existing_with_permissions
 		: IClassFixture<deleting_existing_with_permissions.Fixture> {
 		private const string Stream = nameof(deleting_existing_with_permissions);

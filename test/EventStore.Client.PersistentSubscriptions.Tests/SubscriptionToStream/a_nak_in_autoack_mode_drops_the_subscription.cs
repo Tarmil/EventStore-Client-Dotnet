@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class a_nak_in_autoack_mode_drops_the_subscription
 		: IClassFixture<a_nak_in_autoack_mode_drops_the_subscription.Fixture> {
 		private readonly Fixture _fixture;

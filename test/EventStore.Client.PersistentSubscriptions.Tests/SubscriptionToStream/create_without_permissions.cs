@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client {
+namespace EventStore.Client.SubscriptionToStream {
 	public class create_without_permissions
 		: IClassFixture<create_without_permissions.Fixture> {
 		public create_without_permissions(Fixture fixture) {
