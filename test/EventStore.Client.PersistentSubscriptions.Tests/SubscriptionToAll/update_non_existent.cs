@@ -2,10 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EventStore.Client.SubscriptionToStream {
+namespace EventStore.Client.SubscriptionToAll {
 	public class update_non_existent
 		: IClassFixture<update_non_existent.Fixture> {
-		private const string Stream = nameof(update_non_existent);
+		private const string Stream = SystemStreams.AllStream;
 		private const string Group = "nonexistent";
 		private readonly Fixture _fixture;
 
