@@ -19,10 +19,9 @@ message ReadReq {
 	}
 
 	message Options {
-		event_store.client.StreamIdentifier stream_identifier = 1 [deprecated = true];
 		oneof stream_option {
-			StreamOptions stream = 5;
-			AllOptions all = 6;
+			event_store.client.StreamIdentifier stream_identifier = 1;
+			event_store.client.Empty all = 5;
 		}
 
 		string group_name = 2;
@@ -35,13 +34,6 @@ message ReadReq {
 				event_store.client.Empty string = 2;
 			}
 		}
-	}
-
-	message StreamOptions {
-		event_store.client.StreamIdentifier stream_identifier = 1;
-	}
-
-	message AllOptions {
 	}
 
 	message Ack {
@@ -236,18 +228,10 @@ message DeleteReq {
 
 	message Options {
 		oneof stream_option {
-			StreamOptions stream = 3;
-			AllOptions all = 4;
+			event_store.client.StreamIdentifier stream_identifier = 1;
+			event_store.client.Empty all = 3;
 		}
-		event_store.client.StreamIdentifier stream_identifier = 1 [deprecated = true];
 		string group_name = 2;
-	}
-
-	message StreamOptions {
-		event_store.client.StreamIdentifier stream_identifier = 1;
-	}
-
-	message AllOptions {
 	}
 }
 

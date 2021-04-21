@@ -6,16 +6,6 @@ using EventStore.Client.PersistentSubscriptions;
 #nullable enable
 namespace EventStore.Client {
 	partial class EventStorePersistentSubscriptionsClient {
-		private static ReadReq.Types.StreamOptions StreamOptionsForReadProto(string streamName) {
-			return new ReadReq.Types.StreamOptions {
-				StreamIdentifier = streamName,
-			};
-		}
-
-		private static ReadReq.Types.AllOptions AllOptionsForReadProto() {
-			return new ReadReq.Types.AllOptions();
-		}
-
 		/// <summary>
 		/// Subscribes to a persistent subscription.
 		/// </summary>
@@ -67,16 +57,20 @@ namespace EventStore.Client {
 				await SelectCallInvoker(cancellationToken).ConfigureAwait(false)).Read(EventStoreCallOptions.Create(
 				Settings, operationOptions, userCredentials, cancellationToken));
 
-			return await PersistentSubscription.Confirm(call, new ReadReq.Types.Options {
-				Stream = streamName != SystemStreams.AllStream ? StreamOptionsForReadProto(streamName) : null,
-				All = streamName == SystemStreams.AllStream ? AllOptionsForReadProto() : null,
-				#pragma warning disable 612
-				StreamIdentifier = streamName != SystemStreams.AllStream ? streamName : string.Empty, /*for backwards compatibility*/
-				#pragma warning restore 612
+			var readOptions = new ReadReq.Types.Options {
 				BufferSize = bufferSize,
 				GroupName = groupName,
 				UuidOption = new ReadReq.Types.Options.Types.UUIDOption {Structured = new Empty()}
-			}, autoAck, eventAppeared, subscriptionDropped ?? delegate { }, cancellationToken).ConfigureAwait(false);
+			};
+
+			if (streamName == SystemStreams.AllStream) {
+				readOptions.All = new Empty();
+			} else {
+				readOptions.StreamIdentifier = streamName;
+			}
+
+			return await PersistentSubscription.Confirm(call, readOptions, autoAck, eventAppeared,
+				subscriptionDropped ?? delegate { }, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }
